@@ -6,15 +6,7 @@
 
 
 
-### Небольшое допущение. Необходимо добавить в /etc/hosts строки:
-```bash
-127.0.0.1       mongors1n1
-127.0.0.1       mongors1n2
-127.0.0.1       mongors1n3
-```
-
-
-### Строка подключения `mongodb://localhost:27017?replicaSet=mongors1`
+### Строка подключения `mongodb://localhost:27019,localhost:27020`
 
 ![Init_Connection.png](images%2FInit_Connection.png)
 
@@ -25,7 +17,7 @@
 from pymongo import MongoClient
 
 if __name__ == '__main__':
-    client = MongoClient('mongodb://localhost:27017/?replicaSet=mongors1')
+    client = MongoClient('mongodb://localhost:27019,localhost:27020')
     mydb = client['someDb']
     mycol = mydb['someCollection']
 
